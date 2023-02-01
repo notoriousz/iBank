@@ -27,7 +27,8 @@ dependencies {
     implementation("io.springfox:springfox-boot-starter:3.0.0")
     implementation("io.github.microutils:kotlin-logging-jvm:3.0.4")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-    implementation("postgresql:postgresql:9.1-901-1.jdbc4")
+    implementation("org.springframework.boot:spring-boot-starter-data-rest:3.0.2")
+    implementation("org.postgresql:postgresql:42.5.2")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
