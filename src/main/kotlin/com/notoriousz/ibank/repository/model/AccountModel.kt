@@ -1,35 +1,28 @@
 package com.notoriousz.ibank.repository.model
 
+import com.notoriousz.ibank.enums.AccountType
+import java.math.BigDecimal
 import java.time.LocalDateTime
-import java.util.*
+import java.util.UUID
 import javax.persistence.*
 
-
-@Entity(name = "customer")
-data class CustomerModel(
+@Entity(name = "account")
+data class AccountModel(
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id: UUID? = UUID.randomUUID(),
+    var id: UUID?,
 
     @Column
-    var name: String,
+    var amount: BigDecimal = BigDecimal.ZERO,
 
     @Column
-    var password: String,
-
-    @ManyToOne
-    @JoinColumn(name = "account_id")
-    var accounts: AccountModel?,
+    @Enumerated
+    var type: AccountType,
 
     @Column(name = "created_at")
     var createdAt: LocalDateTime = LocalDateTime.now(),
 
     @Column(name = "update_at")
     var updateAt: LocalDateTime = LocalDateTime.now()
-
 )
-
-
-
-

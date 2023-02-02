@@ -1,6 +1,8 @@
 package com.notoriousz.ibank.controller
 
 //import com.notoriousz.ibank.repository.CustomerRepository
+import com.notoriousz.ibank.enums.AccountType
+import com.notoriousz.ibank.repository.model.AccountModel
 import com.notoriousz.ibank.repository.model.CustomerModel
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
@@ -15,10 +17,17 @@ class CustomerController(
     @GetMapping("/customers")
     fun getAllCustomers(): List<CustomerModel> {
 
+        val accountFake = AccountModel(
+            id = UUID.randomUUID(),
+            type = AccountType.CHECKING_ACCOUNT
+            )
+
+//        val accounts = listOf<AccountModel>(accountFake)
+
         val customers = listOf<CustomerModel>(
-            CustomerModel(name ="Math", password = "123"),
-            CustomerModel(name ="Caio", password =  "123"),
-            CustomerModel(name ="Bois", password = "123")
+            CustomerModel(name ="Math", password = "123", accounts = accountFake),
+            CustomerModel(name ="Caio", password =  "123", accounts = accountFake),
+            CustomerModel(name ="Bois", password = "123", accounts = accountFake)
         )
 
        // return customerRepository.findAll().toList()
