@@ -10,7 +10,7 @@ data class CustomerModel(
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id: UUID? = UUID.randomUUID(),
+    var id: UUID,
 
     @Column
     var name: String,

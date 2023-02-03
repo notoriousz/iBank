@@ -1,6 +1,5 @@
 package com.notoriousz.ibank.controller
 
-//import com.notoriousz.ibank.repository.CustomerRepository
 import com.notoriousz.ibank.enums.AccountType
 import com.notoriousz.ibank.repository.model.AccountModel
 import com.notoriousz.ibank.repository.model.CustomerModel
@@ -11,9 +10,8 @@ import java.util.*
 
 @RestController
 @RequestMapping("/api/v1")
-class CustomerController(
-//    private val customerRepository: CustomerRepository
-) {
+class CustomerController() {
+
     @GetMapping("/customers")
     fun getAllCustomers(): List<CustomerModel> {
 
@@ -25,9 +23,9 @@ class CustomerController(
 //        val accounts = listOf<AccountModel>(accountFake)
 
         val customers = listOf<CustomerModel>(
-            CustomerModel(name ="Math", password = "123", accounts = accountFake),
-            CustomerModel(name ="Caio", password =  "123", accounts = accountFake),
-            CustomerModel(name ="Bois", password = "123", accounts = accountFake)
+            CustomerModel(id = UUID.randomUUID(), name ="Math", password = "123", accounts = accountFake),
+            CustomerModel(id = UUID.randomUUID(),name ="Caio", password =  "123", accounts = accountFake),
+            CustomerModel(id = UUID.randomUUID(),name ="Bois", password = "123", accounts = accountFake)
         )
 
        // return customerRepository.findAll().toList()

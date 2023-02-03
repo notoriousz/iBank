@@ -28,10 +28,9 @@ dependencies {
     implementation("io.springfox:springfox-swagger-ui:3.0.0")
     implementation("javax.persistence:javax.persistence-api:2.2")
     implementation("io.springfox:springfox-boot-starter:3.0.0")
-    implementation("org.postgresql:postgresql:42.5.2")
+    implementation("org.postgresql:postgresql:42.2.27")
     implementation("io.github.microutils:kotlin-logging-jvm:3.0.4")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
-    runtimeOnly("org.postgresql:postgresql")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
