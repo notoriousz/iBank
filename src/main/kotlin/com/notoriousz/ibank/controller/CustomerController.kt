@@ -4,6 +4,7 @@ import com.notoriousz.ibank.entities.Account
 import com.notoriousz.ibank.entities.Customer
 import com.notoriousz.ibank.enums.AccountType
 import com.notoriousz.ibank.repository.CustomerRepository
+import mu.KotlinLogging
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
@@ -14,6 +15,8 @@ import java.util.*
 class CustomerController(
     private val customerRepository: CustomerRepository
 ) {
+
+    private val logger = KotlinLogging.logger {}
 
     @GetMapping("/customers")
     fun getAllCustomers(): List<Customer> {

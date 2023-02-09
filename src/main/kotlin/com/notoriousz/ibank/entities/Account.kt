@@ -7,7 +7,6 @@ import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
 import java.math.BigDecimal
 import java.time.LocalDateTime
-import java.util.*
 
 @Entity(name = "account")
 data class Account(

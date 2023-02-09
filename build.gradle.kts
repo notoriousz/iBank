@@ -23,14 +23,17 @@ dependencies {
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+    implementation("org.mapstruct:mapstruct:1.5.3.Final")
     implementation("io.springfox:springfox-swagger2:3.0.0")
     implementation("io.springfox:springfox-swagger-ui:3.0.0")
     implementation("javax.persistence:javax.persistence-api:2.2")
     implementation("io.springfox:springfox-boot-starter:3.0.0")
     implementation("org.postgresql:postgresql:42.2.27")
     implementation("io.github.microutils:kotlin-logging-jvm:3.0.4")
+    annotationProcessor("org.mapstruct:mapstruct-processor:1.5.3.Final")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+
 }
 
 tasks.withType<KotlinCompile> {
