@@ -1,7 +1,8 @@
-package com.notoriousz.ibank.controller.api
+package com.notoriousz.ibank.api
 
 import com.notoriousz.ibank.controller.dto.request.CustomerRequest
 import com.notoriousz.ibank.controller.dto.response.CustomerResponse
+import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
@@ -11,16 +12,16 @@ import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
-@RestController
 @RequestMapping("/api/v1")
 interface CustomerApi {
+
     @PostMapping("/customers")
     fun createCustomers(
         @RequestBody newCustomer: CustomerRequest
     )
 
-    @GetMapping("/customers")
-    fun getAll(): List<CustomerResponse>
+    @GetMapping
+    fun getAll(): ResponseEntity<CustomerResponse>
 
     @GetMapping("/customers/{id}")
     fun getById(
@@ -36,6 +37,5 @@ interface CustomerApi {
     fun deleteCustomer(
         @PathVariable id: Long
     )
-
 
 }
