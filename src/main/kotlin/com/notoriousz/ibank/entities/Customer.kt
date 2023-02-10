@@ -21,6 +21,9 @@ data class Customer(
     var name: String,
 
     @jakarta.persistence.Column
+    var email: String,
+
+    @jakarta.persistence.Column
     var password: String,
 
     @ManyToOne
@@ -34,7 +37,3 @@ data class Customer(
     var updateAt: LocalDateTime = LocalDateTime.now()
 
 )
-
-
-
-

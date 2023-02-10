@@ -1,4 +1,13 @@
 package com.notoriousz.ibank.domain.service
 
-class CustomerServiceImpl {
+import com.notoriousz.ibank.domain.CustomerService
+import com.notoriousz.ibank.repository.CustomerRepository
+import mu.KotlinLogging
+
+class CustomerServiceImpl(
+    private val customerRepository: CustomerRepository
+) : CustomerService {
+
+    val logger = KotlinLogging.logger {}
+
 }

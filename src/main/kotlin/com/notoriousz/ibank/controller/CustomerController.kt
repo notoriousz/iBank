@@ -1,5 +1,9 @@
 package com.notoriousz.ibank.controller
 
+import com.notoriousz.ibank.controller.api.CustomerApi
+import com.notoriousz.ibank.controller.dto.request.CustomerRequest
+import com.notoriousz.ibank.controller.dto.response.CustomerResponse
+import com.notoriousz.ibank.domain.service.CustomerServiceImpl
 import com.notoriousz.ibank.entities.Account
 import com.notoriousz.ibank.entities.Customer
 import com.notoriousz.ibank.enums.AccountType
@@ -10,32 +14,29 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 import java.util.*
 
-@RestController
-@RequestMapping("/api/v1")
+
 class CustomerController(
-    private val customerRepository: CustomerRepository
-) {
+    private val customerService: CustomerServiceImpl
+) : CustomerApi {
 
-    private val logger = KotlinLogging.logger {}
+    override fun createCustomers(newCustomer: CustomerRequest) {
+        TODO("Not yet implemented")
+    }
 
-    @GetMapping("/customers")
-    fun getAllCustomers(): List<Customer> {
+    override fun getAll(): List<CustomerResponse> {
+        TODO("Not yet implemented")
+    }
 
-        val accountFake = Account(
-            id = 1,
-            type = AccountType.CHECKING_ACCOUNT
-            )
+    override fun getById(id: Long): CustomerResponse {
+        TODO("Not yet implemented")
+    }
 
-//        val accounts = listOf<AccountModel>(accountFake)
+    override fun updateCustomer(id: Long) {
+        TODO("Not yet implemented")
+    }
 
-        val customers = listOf<Customer>(
-            Customer(id = 1, name ="Math", password = "123", accounts = accountFake),
-            Customer(id = 2,name ="Caio", password =  "123", accounts = accountFake),
-            Customer(id = 3,name ="Bois", password = "123", accounts = accountFake)
-        )
-
-//        return customerRepository.findAll().toList()
-        return customers
+    override fun deleteCustomer(id: Long) {
+        TODO("Not yet implemented")
     }
 
 }
