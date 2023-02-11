@@ -20,7 +20,12 @@ class CustomerServiceImpl(
         customerRepository.save(customer)
     }
 
-    override fun findAllCustomers(): List<Customer> = customerRepository.findAll()
+    override fun findAllCustomers(): List<Customer> {
+
+        logger.info { "Find all customers" }
+
+        return customerRepository.findAll()
+    }
 
 
 }

@@ -6,7 +6,6 @@ import com.notoriousz.ibank.controller.dto.response.CustomerResponse
 import com.notoriousz.ibank.domain.service.CustomerServiceImpl
 import com.notoriousz.ibank.mapper.toCustomerEntity
 import com.notoriousz.ibank.mapper.toCustomerResponse
-import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.RestController
 
 
@@ -22,14 +21,9 @@ class CustomerController(
         customerService.create(customer)
     }
 
-    override fun getAll(): ResponseEntity<List<CustomerResponse>> {
+    override fun getAll(): List<CustomerResponse> = customerService.findAllCustomers()
+            .map { it.toCustomerResponse() }
 
-        val listOfCustomers =
-            customerService.findAllCustomers()
-                .map { it.toCustomerResponse() }
-
-        return ResponseEntity.ok().body(listOfCustomers)
-    }
 
     override fun getById(id: Long): CustomerResponse {
         TODO("Not yet implemented")

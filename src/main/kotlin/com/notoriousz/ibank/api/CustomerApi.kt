@@ -14,7 +14,8 @@ interface CustomerApi {
     fun createCustomers(@RequestBody newCustomer: CustomerRequest)
 
     @GetMapping("/customers")
-    fun getAll(): ResponseEntity<List<CustomerResponse>>
+    @ResponseStatus(HttpStatus.OK)
+    fun getAll(): List<CustomerResponse>
 
     @GetMapping("/customers/{id}")
     fun getById(
