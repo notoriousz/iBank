@@ -15,7 +15,7 @@ data class Customer(
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id: Long?,
+    var id: Long? = null,
 
     @jakarta.persistence.Column
     var name: String,
@@ -28,7 +28,7 @@ data class Customer(
 
     @ManyToOne
     @JoinColumn(name = "account_id")
-    var accounts: Account?,
+    var accounts: Account? = null,
 
     @jakarta.persistence.Column(name = "created_at")
     var createdAt: LocalDateTime = LocalDateTime.now(),

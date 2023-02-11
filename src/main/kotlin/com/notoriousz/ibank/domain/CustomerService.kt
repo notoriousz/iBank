@@ -1,7 +1,10 @@
 package com.notoriousz.ibank.domain
 
-import org.springframework.stereotype.Service
+import com.notoriousz.ibank.entities.Customer
 
-@Service
+
 interface CustomerService {
+
+    fun create(customer: Customer)
+
 }
