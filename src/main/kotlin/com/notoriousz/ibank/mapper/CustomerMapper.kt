@@ -11,11 +11,12 @@ fun CustomerRequest.toCustomerEntity(): Customer
     password = this.password,
 )
 
-fun Customer.ToCustomerResponse(): CustomerResponse
+fun Customer.toCustomerResponse(): CustomerResponse
 = CustomerResponse(
     id = this.id,
     name = this.name,
     password = this.password,
+    email = this.email,
     accounts = this.accounts,
     createdAt = this.createdAt
 )

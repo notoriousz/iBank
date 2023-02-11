@@ -7,4 +7,6 @@ interface CustomerService {
 
     fun create(customer: Customer)
 
+    fun findAllCustomers(): List<Customer>
+
 }

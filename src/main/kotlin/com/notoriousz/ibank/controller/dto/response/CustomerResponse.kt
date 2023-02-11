@@ -12,8 +12,9 @@ data class CustomerResponse(
 
     var password: String,
 
+    var email: String,
+
     var accounts: Account? = null,
 
-    @JsonAlias("created_at")
     var createdAt: LocalDateTime
 )
