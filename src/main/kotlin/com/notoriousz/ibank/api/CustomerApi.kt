@@ -18,13 +18,16 @@ interface CustomerApi {
     fun getAll(): List<CustomerResponse>
 
     @GetMapping("/customers/{id}")
+    @ResponseStatus(HttpStatus.OK)
     fun getById(
         @PathVariable id: Long
     ): CustomerResponse
 
     @PutMapping("/customers/{id}")
+    @ResponseStatus(HttpStatus.OK)
     fun updateCustomer(
-        @PathVariable id: Long
+        @PathVariable id: Long,
+        @RequestBody request: CustomerRequest
     )
 
     @DeleteMapping("/customers/{id}")

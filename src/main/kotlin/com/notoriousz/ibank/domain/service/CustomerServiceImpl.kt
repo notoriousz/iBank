@@ -1,5 +1,6 @@
 package com.notoriousz.ibank.domain.service
 
+import com.notoriousz.ibank.controller.dto.request.CustomerRequest
 import com.notoriousz.ibank.domain.CustomerService
 import com.notoriousz.ibank.entities.Customer
 import com.notoriousz.ibank.repository.CustomerRepository
@@ -31,5 +32,19 @@ class CustomerServiceImpl(
         customerRepository.getCustomerById(id)
 
 
+    override fun updateCustomer(id: Long, request: CustomerRequest) {
+        val customer = findById(id)
+
+        customer.let {
+            it.name = request.name
+            it.email = request.email
+            it.password = request.password
+        }
+
+        logger.info { "Update customer $customer" }
+
+        customerRepository.save(customer)
+
+    }
 
 }

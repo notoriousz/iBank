@@ -4,6 +4,7 @@ import com.notoriousz.ibank.api.CustomerApi
 import com.notoriousz.ibank.controller.dto.request.CustomerRequest
 import com.notoriousz.ibank.controller.dto.response.CustomerResponse
 import com.notoriousz.ibank.domain.service.CustomerServiceImpl
+import com.notoriousz.ibank.entities.Customer
 import com.notoriousz.ibank.mapper.toCustomerEntity
 import com.notoriousz.ibank.mapper.toCustomerResponse
 import org.springframework.web.bind.annotation.RestController
@@ -31,8 +32,8 @@ class CustomerController(
             .findById(id)
             .toCustomerResponse()
 
-    override fun updateCustomer(id: Long) {
-        TODO("Not yet implemented")
+    override fun updateCustomer(id: Long, request: CustomerRequest) {
+        customerService.updateCustomer(id, request)
     }
 
     override fun deleteCustomer(id: Long) {
