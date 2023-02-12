@@ -31,6 +31,7 @@ interface CustomerApi {
     )
 
     @DeleteMapping("/customers/{id}")
+    @ResponseStatus(HttpStatus.OK)
     fun deleteCustomer(
         @PathVariable id: Long
     )

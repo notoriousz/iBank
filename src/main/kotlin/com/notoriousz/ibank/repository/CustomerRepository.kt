@@ -9,4 +9,5 @@ import java.util.*
 @Repository
 interface CustomerRepository : JpaRepository<Customer, Long> {
     fun getCustomerById(id: Long): Customer
+
 }

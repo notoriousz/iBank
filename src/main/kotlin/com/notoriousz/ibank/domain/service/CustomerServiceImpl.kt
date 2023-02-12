@@ -47,4 +47,11 @@ class CustomerServiceImpl(
 
     }
 
+    override fun deleteCustomer(id: Long) {
+
+        logger.info { "Delete customer $id" }
+
+        customerRepository.deleteById(id)
+    }
+
 }

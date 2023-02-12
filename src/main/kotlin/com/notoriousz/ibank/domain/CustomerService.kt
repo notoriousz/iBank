@@ -14,4 +14,6 @@ interface CustomerService {
 
     fun updateCustomer(id: Long, request: CustomerRequest)
 
+    fun deleteCustomer(id: Long)
+
 }

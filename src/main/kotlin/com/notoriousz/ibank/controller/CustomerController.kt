@@ -32,12 +32,10 @@ class CustomerController(
             .findById(id)
             .toCustomerResponse()
 
-    override fun updateCustomer(id: Long, request: CustomerRequest) {
+    override fun updateCustomer(id: Long, request: CustomerRequest) =
         customerService.updateCustomer(id, request)
-    }
 
-    override fun deleteCustomer(id: Long) {
-        TODO("Not yet implemented")
-    }
+    override fun deleteCustomer(id: Long) =
+        customerService.deleteCustomer(id)
 
 }
