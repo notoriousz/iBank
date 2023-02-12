@@ -9,4 +9,6 @@ interface CustomerService {
 
     fun findAllCustomers(): List<Customer>
 
+    fun findById(id: Long): Customer
+
 }

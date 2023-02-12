@@ -21,13 +21,15 @@ class CustomerController(
         customerService.create(customer)
     }
 
-    override fun getAll(): List<CustomerResponse> = customerService.findAllCustomers()
+    override fun getAll(): List<CustomerResponse> =
+        customerService.findAllCustomers()
             .map { it.toCustomerResponse() }
 
 
-    override fun getById(id: Long): CustomerResponse {
-        TODO("Not yet implemented")
-    }
+    override fun getById(id: Long): CustomerResponse =
+        customerService
+            .findById(id)
+            .toCustomerResponse()
 
     override fun updateCustomer(id: Long) {
         TODO("Not yet implemented")

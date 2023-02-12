@@ -27,5 +27,9 @@ class CustomerServiceImpl(
         return customerRepository.findAll()
     }
 
+    override fun findById(id: Long): Customer =
+        customerRepository.getCustomerById(id)
+
+
 
 }
