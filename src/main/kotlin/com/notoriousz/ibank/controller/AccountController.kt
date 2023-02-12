@@ -12,13 +12,17 @@ class AccountController(
     private val accountService: AccountServiceImpl
 ): AccountApi {
 
-    override fun deposit(id: Long, deposit: CashDeposit) {
+    override fun deposit(
+        accountId: Long,
+        deposit: CashDeposit
+    ) = accountService.deposit(accountId, deposit)
+
+
+    override fun withdraw(
+        accountId: Long,
+        withdraw: CashWithdraw
+    ) {
         TODO("Not yet implemented")
     }
-
-    override fun withdraw(id: Long, withdraw: CashWithdraw) {
-        TODO("Not yet implemented")
-    }
-
 
 }

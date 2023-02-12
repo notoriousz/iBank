@@ -9,17 +9,17 @@ import org.springframework.web.bind.annotation.*
 @RequestMapping("/api/v1")
 interface AccountApi {
 
-    @PostMapping("/accounts/{id}/deposit")
+    @PostMapping("/accounts/{accountId}/deposit")
     @ResponseStatus(HttpStatus.OK)
     fun deposit(
-        @PathVariable id: Long,
+        @PathVariable accountId: Long,
         @RequestBody deposit: CashDeposit
     )
 
-    @PostMapping("/accounts/{id}/withdraw")
+    @PostMapping("/customers/{clientId}/account/{accountId}/deposit/withdraw")
     @ResponseStatus(HttpStatus.OK)
     fun withdraw(
-        @PathVariable id: Long,
+        @PathVariable accountId: Long,
         @RequestBody withdraw: CashWithdraw
     )
 
