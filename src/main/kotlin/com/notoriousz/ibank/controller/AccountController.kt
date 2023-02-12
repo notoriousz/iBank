@@ -21,8 +21,6 @@ class AccountController(
     override fun withdraw(
         accountId: Long,
         withdraw: CashWithdraw
-    ) {
-        TODO("Not yet implemented")
-    }
+    ) = accountService.withdraw(accountId, withdraw)
 
 }

@@ -6,14 +6,23 @@ import com.notoriousz.ibank.entities.Customer
 
 interface CustomerService {
 
-    fun create(customer: Customer)
+    fun create(
+        customer: Customer
+    )
 
     fun findAllCustomers(): List<Customer>
 
-    fun findById(id: Long): Customer
+    fun findById(
+        id: Long
+    ): Customer
 
-    fun updateCustomer(id: Long, request: CustomerRequest)
+    fun updateCustomer(
+        id: Long,
+        request: CustomerRequest
+    )
 
-    fun deleteCustomer(id: Long)
+    fun deleteCustomer(
+        id: Long
+    )
 
 }

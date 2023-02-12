@@ -1,6 +1,7 @@
 package com.notoriousz.ibank.domain
 
 import com.notoriousz.ibank.controller.dto.request.CashDeposit
+import com.notoriousz.ibank.controller.dto.request.CashWithdraw
 
 interface AccountService {
 
@@ -9,6 +10,9 @@ interface AccountService {
         deposit: CashDeposit
     )
 
-    fun withdraw()
+    fun withdraw(
+        accountId: Long,
+        withdraw: CashWithdraw
+    )
 
 }

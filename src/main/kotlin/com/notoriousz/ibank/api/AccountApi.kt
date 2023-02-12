@@ -16,7 +16,7 @@ interface AccountApi {
         @RequestBody deposit: CashDeposit
     )
 
-    @PostMapping("/customers/{clientId}/account/{accountId}/deposit/withdraw")
+    @PostMapping("/accounts/{accountId}/withdraw")
     @ResponseStatus(HttpStatus.OK)
     fun withdraw(
         @PathVariable accountId: Long,
