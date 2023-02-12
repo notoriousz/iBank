@@ -2,6 +2,7 @@ package com.notoriousz.ibank.mapper
 
 import com.notoriousz.ibank.controller.dto.request.CustomerRequest
 import com.notoriousz.ibank.controller.dto.response.CustomerResponse
+import com.notoriousz.ibank.entities.Account
 import com.notoriousz.ibank.entities.Customer
 
 fun CustomerRequest.toCustomerEntity(): Customer
@@ -17,6 +18,6 @@ fun Customer.toCustomerResponse(): CustomerResponse
     name = this.name,
     password = this.password,
     email = this.email,
-    accounts = this.accounts,
+    account = this.accounts,
     createdAt = this.createdAt
 )

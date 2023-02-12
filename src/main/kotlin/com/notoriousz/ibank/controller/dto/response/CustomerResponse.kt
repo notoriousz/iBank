@@ -14,7 +14,7 @@ data class CustomerResponse(
 
     var email: String,
 
-    var accounts: Account? = null,
+    var account: Account? = null,
 
     var createdAt: LocalDateTime
 )

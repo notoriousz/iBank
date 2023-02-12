@@ -2,14 +2,17 @@ package com.notoriousz.ibank.domain.service
 
 import com.notoriousz.ibank.controller.dto.request.CustomerRequest
 import com.notoriousz.ibank.domain.CustomerService
+import com.notoriousz.ibank.entities.Account
 import com.notoriousz.ibank.entities.Customer
+import com.notoriousz.ibank.repository.AccountReponsitory
 import com.notoriousz.ibank.repository.CustomerRepository
 import mu.KotlinLogging
 import org.springframework.stereotype.Service
 
 @Service
 class CustomerServiceImpl(
-    private val customerRepository: CustomerRepository
+    private val customerRepository: CustomerRepository,
+    private val accountReponsitory: AccountReponsitory
 ) : CustomerService {
 
     val logger = KotlinLogging.logger {}
@@ -17,6 +20,12 @@ class CustomerServiceImpl(
     override fun create(customer: Customer) {
 
         logger.info { "Creating New Customer" }
+
+        val newAccount = Account()
+
+        accountReponsitory.save(newAccount)
+
+        customer.accounts = newAccount
 
         customerRepository.save(customer)
     }

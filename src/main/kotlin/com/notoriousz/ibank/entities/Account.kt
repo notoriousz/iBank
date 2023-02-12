@@ -13,14 +13,14 @@ data class Account(
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id: Long?,
+    var id: Long?= null,
 
     @jakarta.persistence.Column
     var amount: BigDecimal = BigDecimal.ZERO,
 
     @jakarta.persistence.Column
     @jakarta.persistence.Enumerated
-    var type: AccountType,
+    var type: AccountType = AccountType.CHECKING_ACCOUNT,
 
     @jakarta.persistence.Column(name = "created_at")
     var createdAt: LocalDateTime = LocalDateTime.now(),
