@@ -2,7 +2,7 @@
 
 ## Intro
 
-I build a basic REST API based on a bank account to a Civil Person.
+A basic REST API based in a bank account to a Civil Person.
 
 ## Engineering Stack
 
