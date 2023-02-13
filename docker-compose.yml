@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
 #  app:
-#    image: 'notoriousz/notoriousz-repo:latest'
+#    image: 'ibank/ibank-repo:latest'
 #    build:
 #      context: .
 #    container_name: app

@@ -1,12 +1,9 @@
 package com.notoriousz.ibank.entities
 
 import com.notoriousz.ibank.enums.AccountType
-import jakarta.persistence.Entity
-import jakarta.persistence.GeneratedValue
-import jakarta.persistence.GenerationType
-import jakarta.persistence.Id
 import java.math.BigDecimal
 import java.time.LocalDateTime
+import javax.persistence.*
 
 @Entity(name = "account")
 data class Account(
@@ -15,16 +12,16 @@ data class Account(
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long?= null,
 
-    @jakarta.persistence.Column
+    @Column
     var amount: BigDecimal = BigDecimal.ZERO,
 
-    @jakarta.persistence.Column
-    @jakarta.persistence.Enumerated
+    @Column
+    @Enumerated
     var type: AccountType = AccountType.CHECKING_ACCOUNT,
 
-    @jakarta.persistence.Column(name = "created_at")
+    @Column(name = "created_at")
     var createdAt: LocalDateTime = LocalDateTime.now(),
 
-    @jakarta.persistence.Column(name = "update_at")
+    @Column(name = "update_at")
     var updateAt: LocalDateTime = LocalDateTime.now()
 )

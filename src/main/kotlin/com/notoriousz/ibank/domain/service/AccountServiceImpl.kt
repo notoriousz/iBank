@@ -45,7 +45,7 @@ class AccountServiceImpl(
         account.amount -= valueToRemove
         account.updateAt = LocalDateTime.now()
 
-        if(account.amount < BigDecimal.ZERO) throw RuntimeException("Invalid Operation, amount is insufficient to remove $valueToRemove")
+        if(account.amount < BigDecimal.ZERO) throw Exception("Invalid Operation, amount is insufficient to remove $valueToRemove")
 
         accountRepository.save(account)
 
