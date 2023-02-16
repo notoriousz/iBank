@@ -7,6 +7,7 @@ import com.notoriousz.ibank.entities.Customer
 import com.notoriousz.ibank.repository.AccountReponsitory
 import com.notoriousz.ibank.repository.CustomerRepository
 import mu.KotlinLogging
+import org.springframework.cache.annotation.Cacheable
 import org.springframework.stereotype.Service
 
 @Service
@@ -30,6 +31,7 @@ class CustomerServiceImpl(
         customerRepository.save(customer)
     }
 
+    @Cacheable("customers")
     override fun findAllCustomers(): List<Customer> {
 
         logger.info { "Find all customers" }
@@ -37,6 +39,7 @@ class CustomerServiceImpl(
         return customerRepository.findAll()
     }
 
+    @Cacheable("customer")
     override fun findById(id: Long): Customer =
         customerRepository.getCustomerById(id)
 
