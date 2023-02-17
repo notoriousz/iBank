@@ -30,19 +30,27 @@ class CustomerController(
         customerService.create(customer)
     }
 
-    override fun getAll(): List<CustomerResponse> =
-        customerService.findAllCustomers()
+    override fun getAll(): List<CustomerResponse> = customerService
+        .findAllCustomers()
             .map { it.toCustomerResponse() }
 
 
     override fun getById(id: Long): CustomerResponse {
 
-        val selfLink = linkTo(CustomerController::class.java).slash(id).withSelfRel()
+        val accountId = customerService.findById(id).accounts?.id
+
+        val selfLink = linkTo(CustomerController::class.java)
+            .slash(id)
+            .withSelfRel()
+
+        val accountLink = linkTo(AccountController::class.java)
+            .slash(accountId)
+            .withRel("manage_account")
 
         return customerService
             .findById(id)
             .toCustomerResponse()
-            .add(selfLink)
+            .add(selfLink, accountLink)
     }
 
 
