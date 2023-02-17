@@ -2,7 +2,7 @@
 
 ## Intro
 
-A basic REST API based in a bank account to a Civil Person, using importants concepts to matured a API Rest, as Caching, Hateoas and SOLID Principles.
+A basic REST API based in a bank account to a Civil Person, using importants concepts to matured a API REST using Caching, HATEOAS and SOLID Principles.
 
 ## Engineering Stack
 
