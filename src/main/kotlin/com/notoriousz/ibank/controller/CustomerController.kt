@@ -45,14 +45,20 @@ class CustomerController(
             .slash(id)
             .withSelfRel()
 
-        val accountLink = linkTo(AccountController::class.java)
+        val accountLinkWithdraw = linkTo(AccountController::class.java)
             .slash(accountId)
+            .slash("withdraw")
+            .withRel("manage_account")
+
+        val accountLinkDeposit = linkTo(AccountController::class.java)
+            .slash(accountId)
+            .slash("deposit")
             .withRel("manage_account")
 
         return customerService
             .findById(id)
             .toCustomerResponse()
-            .add(selfLink, accountLink)
+            .add(selfLink, accountLinkWithdraw, accountLinkDeposit)
     }
 
 
