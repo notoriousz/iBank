@@ -19,7 +19,6 @@ import java.math.BigDecimal
 @RestController
 class CustomerController(
     private val customerService: CustomerServiceImpl,
-    private val customerRepository: CustomerRepository
 ) : CustomerApi {
 
 
@@ -31,8 +30,11 @@ class CustomerController(
     }
 
     override fun getAll(): List<CustomerResponse> = customerService
-        .findAllCustomers()
-            .map { it.toCustomerResponse() }
+            .findAllCustomers()
+            .map {
+                val selfLink = linkTo(CustomerController::class.java).slash(it.id).withSelfRel()
+                it.toCustomerResponse().add(selfLink)
+            }
 
 
     override fun getById(id: Long): CustomerResponse {
