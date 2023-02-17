@@ -1,6 +1,7 @@
 package com.notoriousz.ibank.controller.dto.response
 
 import com.notoriousz.ibank.entities.Account
+import org.springframework.hateoas.RepresentationModel
 import java.time.LocalDateTime
 
 data class CustomerResponse(
@@ -10,4 +11,4 @@ data class CustomerResponse(
     var email: String,
     var account: Account? = null,
     var createdAt: LocalDateTime
-)
+) : RepresentationModel<CustomerResponse>()
