@@ -6,17 +6,17 @@ import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
 
 
-@RequestMapping("/api/v1")
+@RequestMapping("/api/v1/accounts")
 interface AccountApi {
 
-    @PostMapping("/accounts/{accountId}/deposit")
+    @PostMapping("/{accountId}/deposit")
     @ResponseStatus(HttpStatus.OK)
     fun deposit(
         @PathVariable accountId: Long,
         @RequestBody deposit: CashDeposit
     )
 
-    @PostMapping("/accounts/{accountId}/withdraw")
+    @PostMapping("/{accountId}/withdraw")
     @ResponseStatus(HttpStatus.OK)
     fun withdraw(
         @PathVariable accountId: Long,

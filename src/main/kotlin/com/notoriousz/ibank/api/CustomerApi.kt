@@ -2,36 +2,34 @@ package com.notoriousz.ibank.api
 
 import com.notoriousz.ibank.controller.dto.request.CustomerRequest
 import com.notoriousz.ibank.controller.dto.response.CustomerResponse
-import org.hibernate.annotations.Cache
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
-import javax.persistence.Cacheable
 
-@RequestMapping("/api/v1")
+@RequestMapping("/api/v1/customers")
 interface CustomerApi {
 
-    @PostMapping("/customers")
+    @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     fun createCustomers(@RequestBody newCustomer: CustomerRequest)
 
-    @GetMapping("/customers")
+    @GetMapping
     @ResponseStatus(HttpStatus.OK)
     fun getAll(): List<CustomerResponse>
 
-    @GetMapping("/customers/{id}")
+    @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     fun getById(
         @PathVariable id: Long
     ): CustomerResponse
 
-    @PutMapping("/customers/{id}")
+    @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     fun updateCustomer(
         @PathVariable id: Long,
         @RequestBody request: CustomerRequest
     )
 
-    @DeleteMapping("/customers/{id}")
+    @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     fun deleteCustomer(
         @PathVariable id: Long

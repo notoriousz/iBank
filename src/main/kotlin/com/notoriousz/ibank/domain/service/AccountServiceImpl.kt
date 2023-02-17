@@ -3,6 +3,7 @@ package com.notoriousz.ibank.domain.service
 import com.notoriousz.ibank.controller.dto.request.CashDeposit
 import com.notoriousz.ibank.controller.dto.request.CashWithdraw
 import com.notoriousz.ibank.domain.AccountService
+import com.notoriousz.ibank.entities.Account
 import com.notoriousz.ibank.repository.AccountReponsitory
 import mu.KotlinLogging
 import org.springframework.stereotype.Service
