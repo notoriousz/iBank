@@ -20,7 +20,7 @@ git clone git@github.com:notoriousz/iBank.git
 docker-compose up
 ~~~
 
-3 - Run using the main class:
+3 - Run the main class:
 ~~~
 run iBankApplication.kt
 ~~~
